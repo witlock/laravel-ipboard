@@ -62,7 +62,7 @@ class Ipboard
 
         $this->httpRequest = new HttpClient([
             "base_uri" => $this->url,
-            "timeout"  => 2.0,
+            "timeout"  => 3.0,
             "defaults" => [
                 "auth" => [$this->key, ""],
             ],
@@ -617,7 +617,8 @@ class Ipboard
 
             return json_decode($response, false);
         } catch (ClientException $e) {
-            $this->handleError($e->getResponse());
+            //$this->handleError($e->getResponse());
+            return null;
         }
     }
 
